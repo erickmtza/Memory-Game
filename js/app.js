@@ -8,8 +8,15 @@ deck[0].addEventListener('click', function(event) {
   const card = event.target;
   if (card.classList.contains('card')) {
     console.log("Clicked card");
+    cardFlip(card);
   }
 });
+
+//flip the card
+function cardFlip(display) {
+  display.classList.add('open', 'show');
+};
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below

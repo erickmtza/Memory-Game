@@ -1,8 +1,15 @@
 /*
  * Create a list that holds all of your cards
  */
+const cards = document.getElementsByClassName('card');
+const deck = document.getElementsByClassName('deck');
 
-
+deck[0].addEventListener('click', function(event) {
+  const card = event.target;
+  if (card.classList.contains('card')) {
+    console.log("Clicked card");
+  }
+});
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -24,6 +31,7 @@ function shuffle(array) {
 
     return array;
 }
+
 
 
 /*

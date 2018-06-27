@@ -11,26 +11,43 @@ deck[0].addEventListener('click', function(event) {
 
 //  Using logical operators to set conditions for what cards can flip
   if (card.classList.contains('card')
-  && !card.classList.contains('open') && !card.classList.contains('match')
+  && !card.classList.contains('open') && !card.classList.contains('match') // Don't want these
   && openCards.length < 2) {
     console.log("Clicked card");
     cardFlip(card);
     addFlippedCard(card);
+    matchCheck(card);
   }
 });
 
-//flips the card
+//  flips the card
 function cardFlip(display) {
-  display.classList.add('open', 'show');
+  display.classList.toggle('open')
+  display.classList.toggle('show');
 };
 
-//Add, or Push, card to openCards array to hold on to flipped card
+//  Add, or Push, card to openCards array to hold on to flipped card
 function addFlippedCard(add) {
   openCards.push(add);
   console.log(openCards);
 };
 
-
+//  Checks to see if cards are a matched
+function matchCheck() {
+  if (openCards[0].firstElementChild.className === openCards[1].firstElementChild.className) {
+    openCards[0].classList.add('match');
+    openCards[1].classList.add('match');
+    openCards = [];
+    console.log(openCards);
+  } else {
+    //  Delays the execution of the function by the time set in ms
+    setTimeout (function hide() {
+      cardFlip(openCards[0]);
+      cardFlip(openCards[1]);
+      openCards = [];
+    }, 1000);
+  }
+};
 
 /*
  * Display the cards on the page

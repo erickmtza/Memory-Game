@@ -1,38 +1,51 @@
-
 //Create a list that holds all of your cards
 let openCards = [];
-
 
 const cards = document.getElementsByClassName('card');
 const deck = document.getElementsByClassName('deck');
 
+//  Shuffles the deck
+function reorderDeck() {
+  //  getElementsByTagName returns a NodeList, so we use the Array.from method to create a copy in array form
+    let reorderCards = Array.from(document.querySelectorAll('.deck li'));
+    let randomizeCards = shuffle(reorderCards);
+    randomizeCards.forEach(function (card) {
+      //  getElementsByClassName returns HTMLcollection, so target a specific index
+      deck[0].appendChild(card);
+    });
+};
+reorderDeck();
+
+//  getElementsByClassName returns HTMLcollection, so to add event Listener to an element, target a specific index
 deck[0].addEventListener('click', function(event) {
   const card = event.target;
 
 //  Using logical operators to set conditions for what cards can flip
   if (card.classList.contains('card')
-  && !card.classList.contains('open') && !card.classList.contains('match') // Don't want these
+  && !card.classList.contains('open') && !card.classList.contains('match')  // <--Don't want these as expressed through the use of the !
   && openCards.length < 2) {
-    console.log("Clicked card");
-    cardFlip(card);
-    addFlippedCard(card);
-    matchCheck(card);
+      console.log("Clicked card");
+      cardFlip(card);
+      addFlippedCard(card);
+      if (openCards.length === 2) {
+        matchCheck();
+      }
   }
 });
 
 //  flips the card
 function cardFlip(display) {
-  display.classList.toggle('open')
-  display.classList.toggle('show');
+    display.classList.toggle('open')
+    display.classList.toggle('show');
 };
 
 //  Add, or Push, card to openCards array to hold on to flipped card
 function addFlippedCard(add) {
-  openCards.push(add);
-  console.log(openCards);
+    openCards.push(add);
+    console.log(openCards);
 };
 
-//  Checks to see if cards are a matched
+//  Checks to see if cards are a match
 function matchCheck() {
   if (openCards[0].firstElementChild.className === openCards[1].firstElementChild.className) {
     openCards[0].classList.add('match');
@@ -42,19 +55,13 @@ function matchCheck() {
   } else {
     //  Delays the execution of the function by the time set in ms
     setTimeout (function hide() {
-      cardFlip(openCards[0]);
-      cardFlip(openCards[1]);
-      openCards = [];
-    }, 1000);
+        cardFlip(openCards[0]);
+        cardFlip(openCards[1]);
+        openCards = [];
+        console.log(openCards);
+    }, 500);
   }
 };
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -70,16 +77,3 @@ function shuffle(array) {
 
     return array;
 }
-
-
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */

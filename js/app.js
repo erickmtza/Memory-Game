@@ -10,6 +10,7 @@ deck[0].addEventListener('click', function(event) {
   if (card.classList.contains('card')) {
     console.log("Clicked card");
     cardFlip(card);
+    addFlippedCard(card);
   }
 });
 
@@ -17,6 +18,14 @@ deck[0].addEventListener('click', function(event) {
 function cardFlip(display) {
   display.classList.add('open', 'show');
 };
+
+//Add card to openCards array to hold on to flipped openCards
+function addFlippedCard(add) {
+  openCards.push(add);
+  console.log(openCards);
+};
+
+
 
 /*
  * Display the cards on the page

@@ -1,6 +1,7 @@
-/*
- * Create a list that holds all of your cards
- */
+
+//Create a list that holds all of your cards
+let openCards = [];
+
 const cards = document.getElementsByClassName('card');
 const deck = document.getElementsByClassName('deck');
 

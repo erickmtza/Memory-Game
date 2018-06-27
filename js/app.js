@@ -7,6 +7,8 @@ const deck = document.getElementsByClassName('deck');
 
 deck[0].addEventListener('click', function(event) {
   const card = event.target;
+
+
   if (card.classList.contains('card')) {
     console.log("Clicked card");
     cardFlip(card);
@@ -14,12 +16,12 @@ deck[0].addEventListener('click', function(event) {
   }
 });
 
-//flip the card
+//flips the card
 function cardFlip(display) {
   display.classList.add('open', 'show');
 };
 
-//Add card to openCards array to hold on to flipped openCards
+//Add, or Push, card to openCards array to hold on to flipped openCards
 function addFlippedCard(add) {
   openCards.push(add);
   console.log(openCards);

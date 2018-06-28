@@ -4,19 +4,21 @@ let openCards = [];
 const cards = document.getElementsByClassName('card');
 const deck = document.getElementsByClassName('deck');
 
+let moves = 0;
+
 //  Shuffles the deck
 function reorderDeck() {
   //  getElementsByTagName returns a NodeList, so we use the Array.from method to create a copy in array form
     let reorderCards = Array.from(document.querySelectorAll('.deck li'));
     let randomizeCards = shuffle(reorderCards);
     randomizeCards.forEach(function (card) {
-      //  getElementsByClassName returns HTMLcollection, so target a specific index
+      //  getElementsByClassName returns HTMLcollection (NodeList), so target a specific index
       deck[0].appendChild(card);
     });
 };
 reorderDeck();
 
-//  getElementsByClassName returns HTMLcollection, so to add event Listener to an element, target a specific index
+//  getElementsByClassName returns HTMLcollection (NodeList), so to add event Listener to an element, target a specific index
 deck[0].addEventListener('click', function(event) {
   const card = event.target;
 
@@ -29,9 +31,17 @@ deck[0].addEventListener('click', function(event) {
       addFlippedCard(card);
       if (openCards.length === 2) {
         matchCheck();
+        movecounter();  //  Placed it here to keep count for pair attempts
       }
   }
 });
+
+//  Keeps count of the moves taken when selecting cards
+function movecounter() {
+  moves++
+  let movesCount = document.getElementsByClassName('moves');
+  movesCount[0].innerHTML = moves;  //  Remember to use the index due to the HTMLcollection (NodeList)
+};
 
 //  flips the card
 function cardFlip(display) {

@@ -6,6 +6,9 @@ const deck = document.getElementsByClassName('deck');
 
 let moves = 0;
 
+let timerOff = true;
+let timer = 0;
+
 //  Shuffles the deck
 function reorderDeck() {
   //  getElementsByTagName returns a NodeList, so we use the Array.from method to create a copy in array form
@@ -22,8 +25,14 @@ reorderDeck();
 deck[0].addEventListener('click', function(event) {
   const card = event.target;
 
-//  Using logical operators to set conditions for what cards can flip
-  if (card.classList.contains('card')
+  //  Starts timer on first click
+  if (timerOff === true) {
+    timerOff = false; //  Allows the timer to continue uninterrupted by each click
+    timeClock();
+  }
+
+//  Operating the game
+  if (card.classList.contains('card')  //  Using logical operators to set conditions for what cards can flip
   && !card.classList.contains('open') && !card.classList.contains('match')  //  <--Don't want these as expressed through the use of the !
   && openCards.length < 2) {
       console.log("Clicked card");
@@ -93,7 +102,6 @@ function shuffle(array) {
 function removeStar() {
     let max = document.getElementsByClassName('stars');
     let stars = document.querySelectorAll('.stars li')
-    console.log(stars);
     max[0].removeChild(stars[0]);
 };
 
@@ -102,4 +110,21 @@ function starPerformance() {
     if (moves === 15 || moves === 24) {
         removeStar();
     }
+};
+
+//  Timer
+function timeClock() {
+    let time = document.getElementsByClassName('time');
+
+    function startTime() {
+        timer++;
+        let min = Math.floor(timer / 60);
+        let seconds = timer % 60;
+        if (seconds < 10) {
+          time[0].innerHTML = `${min}:0${seconds}`;
+        } else {
+          time[0].innerHTML = `${min}:${seconds}`;
+        }
+    };
+    setInterval(startTime, 1000);
 };

@@ -24,7 +24,7 @@ deck[0].addEventListener('click', function(event) {
 
 //  Using logical operators to set conditions for what cards can flip
   if (card.classList.contains('card')
-  && !card.classList.contains('open') && !card.classList.contains('match')  // <--Don't want these as expressed through the use of the !
+  && !card.classList.contains('open') && !card.classList.contains('match')  //  <--Don't want these as expressed through the use of the !
   && openCards.length < 2) {
       console.log("Clicked card");
       cardFlip(card);
@@ -32,15 +32,16 @@ deck[0].addEventListener('click', function(event) {
       if (openCards.length === 2) {
         matchCheck();
         movecounter();  //  Placed it here to keep count for pair attempts
+        starPerformance();
       }
   }
 });
 
 //  Keeps count of the moves taken when selecting cards
 function movecounter() {
-  moves++
-  let movesCount = document.getElementsByClassName('moves');
-  movesCount[0].innerHTML = moves;  //  Remember to use the index due to the HTMLcollection (NodeList)
+    moves++
+    let movesCount = document.getElementsByClassName('moves');
+    movesCount[0].innerHTML = moves;  //  Remember to use the index due to the HTMLcollection (NodeList)
 };
 
 //  flips the card
@@ -73,7 +74,7 @@ function matchCheck() {
   }
 };
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+//  Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -87,3 +88,18 @@ function shuffle(array) {
 
     return array;
 }
+
+//  This will remove a star
+function removeStar() {
+    let max = document.getElementsByClassName('stars');
+    let stars = document.querySelectorAll('.stars li')
+    console.log(stars);
+    max[0].removeChild(stars[0]);
+};
+
+//  This establishes at what point in the game a star will be removed
+function starPerformance() {
+    if (moves === 15 || moves === 24) {
+        removeStar();
+    }
+};

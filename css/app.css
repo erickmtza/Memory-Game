@@ -107,3 +107,47 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.modalBackground {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.modalBody {
+    position: relative;
+    margin: auto;
+    margin-top: 100px;
+    width: 350px;
+    height: 250px;
+    background: #02ccba;
+    border-radius: 10px;
+}
+
+.modalTitle {
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+.modalClose {
+    font-size: 2em;
+    float: right;
+    padding: 0 10px;
+}
+
+.modalStat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.modalButtons {
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}

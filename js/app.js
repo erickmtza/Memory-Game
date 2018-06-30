@@ -128,3 +128,9 @@ function timeClock() {
     };
     setInterval(startTime, 1000);
 };
+
+//  This will display the modal window which shows the stats of the endgame
+function endgameModal () {
+    const modal = document.getElementsByClassName('modalBackground');
+    modal[0].classList.toggle('hide');
+}

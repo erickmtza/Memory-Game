@@ -7,14 +7,14 @@
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Udacity **Memory Game** is a card game that requires all face down cards to be matched when flipped. Only two cards can be flipped over at a time. If the pair of cards that are flipped are not a match, the cards will revert to their face down position. Cards that do match will stay facing up.
 
-To get started, open `js/app.js` and start building out the app's functionality
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Resources
 
-## Contributing
+Useful links:
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+*[Google] (https://www.google.com/)
+*[Mozilla MDN]  (https://developer.mozilla.org/en-US/)
+*[W3Schools] (https://www.w3schools.com/default.asp)
+*[Quackit] (https://www.quackit.com/)

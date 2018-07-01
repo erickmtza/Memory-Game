@@ -149,9 +149,9 @@ function gameStats () {
     movesStat[0].innerHTML = `Moves: ${moves}`;
 };
 
+//  ---  Resets the game  ---
 document.querySelector('.modalReplay').addEventListener('click', resetGame);
-
 
 function resetGame() {
     document.location.reload(false);
-}
+};

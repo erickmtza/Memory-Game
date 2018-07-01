@@ -161,3 +161,5 @@ document.querySelector('.modalReplay').addEventListener('click', resetGame);
 function resetGame() {
     document.location.reload(false);
 };
+
+document.querySelector('.restart').addEventListener('click', resetGame);

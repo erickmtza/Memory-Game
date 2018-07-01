@@ -41,9 +41,9 @@ deck[0].addEventListener('click', function(event) {
       cardFlip(card);
       addFlippedCard(card);
       if (openCards.length === 2) {
-        matchCheck();
         movecounter();  //  Placed it here to keep count for pair attempts
         starPerformance();
+        matchCheck();  // Placed here so that the modal shows correct number of moves; refer to the endgameModal()
       }
   }
 });
@@ -137,9 +137,9 @@ function timeClock() {
 
 //  This will display the modal window which shows the stats of the endgame
 function endgameModal () {
-    gameStats ();
     const modal = document.getElementsByClassName('modalBackground');
     modal[0].classList.toggle('hide');
+    gameStats ();
 };
 
 //  This prints the stats on to the modal

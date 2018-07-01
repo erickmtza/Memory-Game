@@ -149,6 +149,9 @@ function gameStats () {
     movesStat[0].innerHTML = `Moves: ${moves}`;
 };
 
-document.querySelector('.modalReplay').addEventListener('click', function(event) {
-    console.log('Replay');
-})
+document.querySelector('.modalReplay').addEventListener('click', resetGame);
+
+
+function resetGame() {
+    document.location.reload(false);
+}

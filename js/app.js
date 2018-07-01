@@ -148,3 +148,7 @@ function gameStats () {
     starStat[0].innerHTML = `Stars: ${starStamp}`;
     movesStat[0].innerHTML = `Moves: ${moves}`;
 };
+
+document.querySelector('.modalReplay').addEventListener('click', function(event) {
+    console.log('Replay');
+})

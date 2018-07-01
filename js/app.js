@@ -131,6 +131,20 @@ function timeClock() {
 
 //  This will display the modal window which shows the stats of the endgame
 function endgameModal () {
+    gameStats ();
     const modal = document.getElementsByClassName('modalBackground');
     modal[0].classList.toggle('hide');
-}
+};
+
+//  This prints the stats on to the modal
+function gameStats () {
+    const timeStat = document.getElementsByClassName('modalTime');
+    const stampTime = document.querySelector('.time').innerHTML;  //  The querySelector does NOT return HTMLcollection
+    const movesStat = document.getElementsByClassName('modalMoves');
+    const starStat = document.getElementsByClassName('modelStars');
+    const starStamp = document.querySelectorAll('.stars .fa-star').length;
+
+    timeStat[0].innerHTML = `Time: ${stampTime}`;
+    starStat[0].innerHTML = `Stars: ${starStamp}`;
+    movesStat[0].innerHTML = `Moves: ${moves}`;
+};

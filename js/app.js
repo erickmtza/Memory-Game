@@ -123,6 +123,7 @@ function timeClock() {
     let time = document.getElementsByClassName('time');
 
     function startTime() {
+      if (timerOff === false)
         timer++;
         let min = Math.floor(timer / 60);
         let seconds = timer % 60;
@@ -137,6 +138,7 @@ function timeClock() {
 
 //  This will display the modal window which shows the stats of the endgame
 function endgameModal () {
+    timerOff = true;
     const modal = document.getElementsByClassName('modalBackground');
     modal[0].classList.toggle('hide');
     gameStats ();

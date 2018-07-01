@@ -37,7 +37,6 @@ deck[0].addEventListener('click', function(event) {
   if (card.classList.contains('card')  //  Using logical operators to set conditions for what cards can flip
   && !card.classList.contains('open') && !card.classList.contains('match')  //  <--Don't want these as expressed through the use of the !
   && openCards.length < 2) {
-      console.log("Clicked card");
       cardFlip(card);
       addFlippedCard(card);
       if (openCards.length === 2) {
@@ -64,7 +63,6 @@ function cardFlip(display) {
 //  Add, or Push, card to openCards array to hold on to flipped card
 function addFlippedCard(add) {
     openCards.push(add);
-    console.log(openCards);
 };
 
 //  Checks to see if cards are a match
@@ -74,7 +72,6 @@ function matchCheck() {
     openCards[1].classList.add('match');
     openCards = [];
     matched++;      //Adds to total of matched
-    console.log(openCards);
     if (matched === totalMatchPairs) { //Will open modal once total of pairs matched is reached
         endgameModal();
     }
@@ -84,7 +81,6 @@ function matchCheck() {
         cardFlip(openCards[0]);
         cardFlip(openCards[1]);
         openCards = [];
-        console.log(openCards);
     }, 500);
   }
 };
@@ -123,7 +119,7 @@ function timeClock() {
     let time = document.getElementsByClassName('time');
 
     function startTime() {
-      if (timerOff === false)
+      if (timerOff === false) {
         timer++;
         let min = Math.floor(timer / 60);
         let seconds = timer % 60;
@@ -132,7 +128,8 @@ function timeClock() {
         } else {
           time[0].innerHTML = `${min}:${seconds}`;
         }
-    };
+      };
+    }
     setInterval(startTime, 1000);
 };
 

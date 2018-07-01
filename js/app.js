@@ -5,6 +5,8 @@ const cards = document.getElementsByClassName('card');
 const deck = document.getElementsByClassName('deck');
 
 let moves = 0;
+let matched = 0;
+const totalMatchPairs = 8;
 
 let timerOff = true;
 let timer = 0;
@@ -71,7 +73,11 @@ function matchCheck() {
     openCards[0].classList.add('match');
     openCards[1].classList.add('match');
     openCards = [];
+    matched++;      //Adds to total of matched
     console.log(openCards);
+    if (matched === totalMatchPairs) { //Will open modal once total of pairs matched is reached
+        endgameModal();
+    }
   } else {
     //  Delays the execution of the function by the time set in ms
     setTimeout (function hide() {

@@ -14,7 +14,7 @@ Udacity **Memory Game** is a card game that requires all face down cards to be m
 
 Useful links:
 
-*[Google] (https://www.google.com/)
-*[Mozilla MDN]  (https://developer.mozilla.org/en-US/)
-*[W3Schools] (https://www.w3schools.com/default.asp)
-*[Quackit] (https://www.quackit.com/)
+* [Google] (https://www.google.com/)
+* [Mozilla MDN]  (https://developer.mozilla.org/en-US/)
+* [W3Schools] (https://www.w3schools.com/default.asp)
+* [Quackit] (https://www.quackit.com/)
